@@ -1,4 +1,4 @@
-title: "React と Vue.js にまつわる XSS の話"
+title: "React と Vue にまつわる XSS の話"
 summary: "React と Vue.js におけるエスケープ機構と XSS についてのお話"
 topics: ["react", "vue", "security"]
 published: false
