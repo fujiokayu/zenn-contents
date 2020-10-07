@@ -1,5 +1,5 @@
-title: "React と Vue にまつわる XSS の話"
+title: "React と Vue に関する XSS アンチパターン"
 summary: "React と Vue.js におけるエスケープ機構と XSS についてのお話"
 topics: ["react", "vue", "security"]
 published: false
-price: 400 # 有料の場合200〜5000
+price: 300 # 有料の場合200〜5000
