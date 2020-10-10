@@ -3,3 +3,10 @@ summary: "React と Vue.js におけるエスケープ機構と XSS について
 topics: ["react", "vue", "security"]
 published: false
 price: 300 # 有料の場合200〜5000
+chapters:
+  - about-framework
+  - definition
+  - about-escapes
+  - xss-over-react
+  - xss-over-vue
+  - afterword
