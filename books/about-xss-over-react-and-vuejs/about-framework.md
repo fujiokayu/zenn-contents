@@ -26,3 +26,7 @@ free: true
 React と Vue では、仮想 DOM を活用しているという点やコンテンツを自動的にエスケープするという点などで共通点が見られます。
 
 本書では、この2つのフレームワークに実装されたエスケープ機構、およびこれらのフレームワークで実装される可能性がある XSS 脆弱性について説明します。
+
+# References
+
+- [State of Frontend 2020](https://tsh.io/state-of-frontend/)

@@ -10,7 +10,7 @@ title: "React における XSS"
 - [SSR を使用しているケース](#ssr-を使用しているケース)
 - [React.createElement に任意の属性を指定できるケース](#reactcreateelement-に任意の属性を指定できるケース)
 - [未知、または既知の脆弱性を利用した XSS](#未知または既知の脆弱性を利用した-xss)
-- [Refferences](#refferences)
+- [References](#references)
 
 <!-- /TOC -->
 
@@ -134,7 +134,7 @@ SSR に限ったことではありませんが、Initial State にユーザー�
 ただし、過去に実装したアプリのパッチマネジメントを適切に行わない場合、既知の脆弱性が悪用される恐れがあります。
 GitHub や `npm audit` の警告を軽視せず、また、可能であれば日々公開される CVE などの脆弱性情報の定期的なチェックを行うことが望ましいと言えます。
 
-# Refferences
+# References
 
 - [MDN - element.innerHTML](https://developer.mozilla.org/ja/docs/Web/API/Element/innerHTML)
 - [DOMPurify](https://github.com/cure53/DOMPurify)

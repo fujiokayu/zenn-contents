@@ -10,7 +10,7 @@ title: "Vue における XSS"
   - [JavaScript の挿入](#javascript-の挿入)
 - [SSR されたデータに任意のユーザー入力が含まれるケース](#ssr-されたデータに任意のユーザー入力が含まれるケース)
 - [未知、または既知の脆弱性を利用した XSS](#未知または既知の脆弱性を利用した-xss)
-- [Refferences](#refferences)
+- [References](#references)
 
 <!-- /TOC -->
 
@@ -286,7 +286,7 @@ Vue や Vue のフレームワーク ([Nuxt.js](https://ja.nuxtjs.org/) など)�
 
 過去に実装したアプリのパッチマネジメントを適切に行わない場合、既知の脆弱性が悪用される恐れがあ流ので、どのようなフレームワークを利用していたとしても、日々のパッチマネジメントや情報収集を欠かさないことが望ましいと言えます。
 
-# Refferences
+# References
 
 - [Vue.js - セキュリティ](https://jp.vuejs.org/v2/guide/security.html)
 - [MDN - element.innerHTML](https://developer.mozilla.org/ja/docs/Web/API/Element/innerHTML)
