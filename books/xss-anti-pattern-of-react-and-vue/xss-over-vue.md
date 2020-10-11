@@ -217,8 +217,8 @@ TypeError: alert is not a function
 ```
 
 Vueの 式は、レンダリングする Vue インスタンスのコンテキストで評価されます。
-つまり、{{foobar }}をレンダリングしようとすると templateData 内の foobar プロパティを探します。
-このとき、{{ alert('xss')}} が templateData.alert('xss') と解釈されてしまったため、予期せぬエラーが発生してしまいました。
+つまり、{{foobar }}をレンダリングしようとすると template 内の foobar プロパティを探します。
+このため、template のプロパティに alert('xss') が存在しなかったために予期せぬエラーが発生してしまいました。
 
 このリポジトリの作者がこのサンドボックスを回避するためのペイロードを紹介しています。
 `{{ constructor.constructor("alert('xss')")() }}`
