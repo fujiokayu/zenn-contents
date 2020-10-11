@@ -161,7 +161,7 @@ javascript: alert("XSS")
 >
 >すべての HTML 要素には、onclick や onfocus、onmouseenter などの JavaScript 文字列を値として受け入れる属性があります。ユーザによって入力された JavaScript をこれらのイベント属性にバインドすることは、潜在的なセキュリティリスクとなるので避ける必要があります。
 
-前章で触れた [eval](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/eval)などもそうですが、フレームワークが予期していない JavaScript が挿入されるような実装をする場合、そのフレームワークの持つ恩恵を受けることはできません。
+前章で触れた [eval](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/eval) などもそうですが、フレームワークが予期していない JavaScript が挿入されるような実装をする場合、そのフレームワークの持つ恩恵を受けることはできません。
 
 # SSR されたデータに任意のユーザー入力が含まれるケース
 
@@ -227,7 +227,7 @@ Vueの 式は、レンダリングする Vue インスタンスのコンテキ�
 
 - [DOM based AngularJS sandbox escapes](https://portswigger.net/research/dom-based-angularjs-sandbox-escapes)
 
-constructor は Object（ここでいう templateData）のコンストラクタを指し、constructor.constructor は関数コンストラクタになり、文字列から関数を生成して任意のコードを実行することができます。
+constructor は Object（template）のコンストラクタを指し、constructor.constructor は関数コンストラクタになり、文字列から関数を生成して任意のコードを実行することができます。
 上記のペイロードを送った場合、以下のように解釈されます。
 `function("alert('xss')")()`
 
@@ -275,16 +275,16 @@ $serverVars = [
 ```
 
 React や Angular 2+ のようなフレームワークはテンプレートを HTML で書かせないようにしていますし、この手の攻撃は刺さりにくいです。
-これについて dotboris は非常に素晴らしい格言でこの README を締めています。
+これについて dotboris は素晴らしい格言でこの README を締めています。
 
 >React や Angualar 2+ が安全だと言っているわけではありません。脆弱性があるからこそ努力しなければならないだけです。
 
 # 未知、または既知の脆弱性を利用した XSS
 
 これについては前章で述べたことと同様です。
-Vue や Vue のフレームワーク ([Nuxt.js](https://ja.nuxtjs.org/) など)でも脆弱性は日々報告されています。
+Vue や Vue のフレームワーク ([Nuxt.js](https://ja.nuxtjs.org/) など)でも脆弱性は報告されています。
 
-過去に実装したアプリのパッチマネジメントを適切に行わない場合、既知の脆弱性が悪用される恐れがあ流ので、どのようなフレームワークを利用していたとしても、日々のパッチマネジメントや情報収集を欠かさないことが望ましいと言えます。
+過去に実装したアプリのパッチマネジメントを適切に行わない場合、既知の脆弱性が悪用される恐れがあるので、どのようなフレームワークを利用していたとしても、日々のパッチマネジメントや情報収集を欠かさないことが望ましいと言えます。
 
 # References
 

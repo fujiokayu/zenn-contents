@@ -4,7 +4,7 @@ title: "React における XSS"
 
 <!-- TOC -->
 
-- [JSX を使わないケース(dangerouslySetInnerHTML)](#jsx-を使わないケースdangerouslysetinnerhtml)
+- [innerHTML を使用するケース(dangerouslySetInnerHTML)](#innerhtml-を使用するケースdangerouslysetinnerhtml)
 - [受け取ったユーザー入力をそのまま href 属性に渡すケース](#受け取ったユーザー入力をそのまま-href-属性に渡すケース)
 - [危険な JavaScript の挿入](#危険な-javascript-の挿入)
 - [SSR を使用しているケース](#ssr-を使用しているケース)
@@ -19,11 +19,11 @@ React で開発者が実装するのは仮想 DOM であり、実際にブラウ
 
 これらのエスケープ機構が機能する範囲では XSS が刺さるケースはないと思いますが、残念ながらこのエスケープ処理が行われないパターンが React には存在します。
 
-# JSX を使わないケース(dangerouslySetInnerHTML)
+# innerHTML を使用するケース(dangerouslySetInnerHTML)
 
 これだけ禍々しい名前が付いていればおいそれと使うケースはほとんどないと思いますが、ユーザーが直接テキストのスタイルを設定するようなケースでは手っ取り早く実装できる手段ではあります。
 
-以下では XSS をハードコードしていますが、これがエンドユーザーの入力を動的に処理する場合にも再現します。
+以下では XSS をハードコードしていますが、これはエンドユーザーの入力を動的に処理する場合にも再現します。
 
 ```js
 const userInput = <b>"Hi, <img src='' onerror='alert(0)' />"</b>;
@@ -31,16 +31,14 @@ return <div dangerouslySetInnerHTML={{ __html: userInput }} />;
 ```
 
 これによって懸念されるリスクは [element.innerHTML](https://developer.mozilla.org/ja/docs/Web/API/Element/innerHTML) をそのまま使用することに相当します。
-その場合にどのような XSS が成立するのかについての詳細は、次章の [HTML の挿入](5#html-の挿入)に記載します。
+その場合にどのような XSS が成立するのかについての詳細は、次章の [HTML の挿入](xss-over-vue#html-の挿入)に記載します。
 
-`dangerouslySetInnerHTML` は利用しないに越したことはありませんが、どうしても利用したい場合は、セットでエスケープ処理を実装することを推奨します。
+`dangerouslySetInnerHTML` は利用しないに越したことはありませんが、どうしても利用したい場合は、セットでエスケープ処理を実装することが必要になります。
 車輪を再発明する必要はないので、[DOMPurify](https://github.com/cure53/DOMPurify) などのサードパーティー製ライブラリを利用するのが良いでしょう。
 独自実装で `<script>` タグのエスケープなどを実装すると、`<scr<script>ipt>` などの入力によってエスケープがバイパスされるなどの危険性があるため、余程腕に自身がある開発者以外は避けた方が賢明です。
 
 また、サードパーティー製のライブラリであっても iframe タグ内のスクリプトは適切にエスケープされない例もあるので、ライブラリの採用は慎重に検討した上で行ってください。
-[CodeSandbox](https://codesandbox.io/index2) で見つけた [React-intl XSS](https://codesandbox.io/s/x864p) では、[React Intl](https://formatjs.io/) の `FormattedHTMLMessage` を使用した XSS の方法が説明されています。
-
-もちろん、`dangerouslySetInnerHTML` を使用しないに越したことはありません。
+[CodeSandbox](https://codesandbox.io/index2) で見つけた [React-intl XSS](https://codesandbox.io/s/x864p) では、[React Intl](https://formatjs.io/) の `FormattedHTMLMessage` を使用した XSS の実装が紹介されています。
 
 # 受け取ったユーザー入力をそのまま href 属性に渡すケース
 
@@ -72,20 +70,20 @@ javascript: alert("https://evil-faas-functions")
 
 原理的には `https://` に続く URL として悪意のある Lambda 関数や Cloud Functions を指定し、Local Storage に格納されている JWT に含まれる Access Token を盗み出してクラウド上にログ出力するようにすれば、ATO(Account Take Over) も可能になります。
 
-[amplify-goat](https://github.com/fujiokayu/amplify-goat) は未完ながら PlayGround も用意しているので、良かったら遊んでいってください。
+amplify-goat は未完ながら PlayGround も用意しているので、良かったら遊んでいってください。
 アプリの要件上会員登録が必須でその情報は Amazon Cognito に登録されますが、本アプリの利用以外の理由では個人情報は使用しません。
 ただし Cognito に登録されたアカウント情報や Dynamo DB 上に登録された Todo データは私が気まぐれに Clean Up することについてはご了承いただけたらと存じます。
 
-https://amplify-goat-20200224131521-hostingbucket-ampgoat.s3-ap-northeast-1.amazonaws.com/index.html
+- [amplify-goat - PlayGround](https://amplify-goat-20200224131521-hostingbucket-ampgoat.s3-ap-northeast-1.amazonaws.com/index.html)
 
 アクセスコントロールの脆弱性を突けば admin ユーザーが登録した Todo を参照することもできますし、admin ユーザーとして新しい Todo を追加することも可能です。
 
 # 危険な JavaScript の挿入
 
 セキュリティ診断などでソースコードを解析する場合、私はよく [eval()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/eval) がソースコード内に含まれていないか確認しています。
-(クライアントブラウザ上での反射型 XSS 以外が成立することは考え難いため)フロントエンドの実装でこれが問題になるケースは少ないかもしれませんが、eval などの危険な関数にユーザー入力を渡すような実装はフレームワークを問わずアンチパターンです。
+昨今でこのようなコードが実装されるケースは少ないと思いますが、eval などの危険な関数にユーザー入力を渡すような実装はフレームワークを問わずアンチパターンです。
 
-[Exploiting Script Injection Flaws in ReactJS Apps](https://medium.com/dailyjs/exploiting-script-injection-flaws-in-reactjs-883fb1fe36c1) からコードを抜粋します。
+[Exploiting Script Injection Flaws in ReactJS Apps](https://medium.com/dailyjs/昨今でこのようなコードが実装されるケースは少ないと思いますが、exploiting-script-injection-flaws-in-reactjs-883fb1fe36c1) からコードを抜粋します。
 
 ```js
 function antiPattern() {
@@ -96,7 +94,7 @@ fn = new Function("..." + attacker_supplied + "...");
 fn();
 ```
 
-昨今でこのようなコードが実装されるケースは少ないと思いますが、念のため共用の ESLint などで [Disallow eval()](https://eslint.org/docs/rules/no-eval) Rule を設定し、機械的に防ぐようにしておくことが望ましいと言えます。
+eval 以外にも危険な関数はありますが、ESLint などで [Disallow eval()](https://eslint.org/docs/rules/no-eval) などの Rule を適宜設定し、機械的に防ぐようにしておくことが望ましいと言えます。
 
 # SSR を使用しているケース
 
@@ -119,7 +117,7 @@ SSR に限ったことではありませんが、Initial State にユーザー�
 # 未知、または既知の脆弱性を利用した XSS
 
 未知の脆弱性を未然に防ぐことは本質的に不可能です。
-このリスクを緩和するためには、攻撃されたことを検知するためのバックエンドのロギングや監視機能、WAF などでによる対処が必要になります。
+このリスクを緩和するためには、攻撃されたことを検知するためのバックエンドのロギングや監視機能、WAF などによる対処が必要になります。
 
 一方で、既知の脆弱性は開発や運用の中で未然に防ぐことが可能です。
 1例として、2018年と少し昔の話ですが、Next.js で XSS が成立するという脆弱性が見つかりました。
