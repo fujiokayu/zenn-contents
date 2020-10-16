@@ -6,8 +6,8 @@ title: "あと書き"
 参考にした情報は2018年頃のものが多く、React Hook を考慮した内容ではありませんが、いずれのケースも今なお刺さるものだと思っています。
 
 Vue についてはこの機会に改めて調べたのですが、公式ドキュメントでセキュリティについてしっかりとまとめられており、Vue を使って実装する方は是非公式ドキュメントをご一読いただけたらと思います。
-また、セキュリティエンジニアの方も、今回用意した Playground や [dotboris/vuejs-serverside-template-xss](https://github.com/dotboris/vuejs-serverside-template-xss) で実際に遊んでみて、最近の Web アプリの攻め方の一環として参照していただけると嬉しいです。
-※ SPA は既存の自動ツールが当て辛いので、どうしても手動の検証が肝になります。
+また、セキュリティエンジニアの方も今回用意した Playground や [dotboris/vuejs-serverside-template-xss](https://github.com/dotboris/vuejs-serverside-template-xss) で実際に遊んでみて、最近の Web アプリの攻め方の一環として参照していただけると嬉しいです。
+※ SPA は既存の自動ツールが当て辛いので、どうしても手動の検証が肝になる印象です。
 
 ---
 
