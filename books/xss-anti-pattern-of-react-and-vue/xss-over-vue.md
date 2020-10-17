@@ -1,5 +1,6 @@
 ---
 title: "Vue における XSS"
+free: true
 ---
 
 <!-- TOC -->

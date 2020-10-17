@@ -1,5 +1,6 @@
 ---
 title: "React における XSS"
+free: true
 ---
 
 <!-- TOC -->
