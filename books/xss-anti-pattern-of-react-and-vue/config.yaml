@@ -1,7 +1,7 @@
 title: "React と Vue に関する XSS アンチパターン"
 summary: "React と Vue.js におけるエスケープ機構と XSS について、簡単なハンズオンを交えて説明していきます。"
 topics: ["react", "vue", "security"]
-published: false
+published: true
 price: 200 # 有料の場合200〜5000
 chapters:
   - about-framework
