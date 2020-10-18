@@ -44,7 +44,7 @@ return <div dangerouslySetInnerHTML={{ __html: userInput }} />;
 # 受け取ったユーザー入力をそのまま href 属性に渡すケース
 
 現実的に起こり得るパターンだと思うのがこれです。
-props 経由で React 要素にデータを渡すと、DOM にレンダリングされる前にデータがエスケープされません。
+props や state 経由で href タグにデータを渡すと、DOM にレンダリングされる前にデータがエスケープされません。
 
 私が以前実装(の途中で放置)したやられアプリにこの脆弱性を実装しています。
 [amplify-goat](https://github.com/fujiokayu/amplify-goat) は React で実装されたシンプルな Todo アプリですが、`https` で始まる Todo はリンク URL として解釈するというお節介な機能が実装されており、その結果以下の脆弱なコードが実装されました。
