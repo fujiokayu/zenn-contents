@@ -99,7 +99,7 @@ eval 以外にも危険な関数はありますが、ESLint などで [Disallow 
 
 # SSR を使用しているケース
 
-[Exploiting Script Injection Flaws in ReactJS Apps](https://medium.com/dailyjs/exploiting-script-injection-flaws-in-reactjs-883fb1fe36c1) には、SSR 用の公式 Redux コードサンプルに XSS の脆弱性が発生していたことも挙げられています。
+[Exploiting Script Injection Flaws in ReactJS Apps](https://medium.com/dailyjs/exploiting-script-injection-flaws-in-reactjs-883fb1fe36c1) には、SSR 用の公式 Redux コードサンプルに XSS の脆弱性が発生していたことが挙げられています。
 現在、Redux の Preparing the Initial State における [Security Considerations](https://redux.js.org/recipes/server-rendering#security-considerations) のドキュメントでは以下のように記載されています。
 
 >この単純な例では、入力を数値に強制することで十分に安全です。フリーフォームテキストのようなより複雑な入力を扱う場合は、その入力を [xss-filters](https://github.com/yahoo/xss-filters) のような適切なサニタイズ関数を通して実行する必要があります。
