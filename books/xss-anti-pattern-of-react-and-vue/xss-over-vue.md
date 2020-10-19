@@ -86,7 +86,7 @@ el.innerHTML = name; // アラートが表示される
 
 >このため、プレーンテキストを挿入するときには innerHTML を使用せず、代わりに Node.textContent を使用することをお勧めします。これは渡されたコンテンツを HTML として解釈するのではなく、生テキストとして挿入します。
 
-v-html を使った簡易的な [Playground](https://vue-xss-poc.vercel.app/) を用意しました。
+v-html を使った簡易的な [Playground](https://vue-xss-poc.vercel.app/) を用意しました。肩慣らしにここで遊んでみましょう。
 ※ 下段の v-bind は次の節で使用します。
 
 :::message
