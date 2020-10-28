@@ -3,18 +3,6 @@ title: "React における XSS"
 free: true
 ---
 
-<!-- TOC -->
-
-- [innerHTML を使用するケース(dangerouslySetInnerHTML)](#innerhtml-を使用するケースdangerouslysetinnerhtml)
-- [受け取ったユーザー入力をそのまま href 属性に渡すケース](#受け取ったユーザー入力をそのまま-href-属性に渡すケース)
-- [危険な JavaScript の挿入](#危険な-javascript-の挿入)
-- [SSR を使用しているケース](#ssr-を使用しているケース)
-- [React.createElement に任意の属性を指定できるケース](#reactcreateelement-に任意の属性を指定できるケース)
-- [未知、または既知の脆弱性を利用した XSS](#未知または既知の脆弱性を利用した-xss)
-- [References](#references)
-
-<!-- /TOC -->
-
 React で開発者が実装するのは仮想 DOM であり、実際にブラウザに読み込ませる DOM をレンダリングする際に View 層の不適切な文字列は適宜エスケープされます。
 そのため `<script>` のような危険な文字列はブラウザに表示される時には無害化されており、仮にユーザーが入力した `<script>alert("Injection!")</script>` といった文字列をそのまま表示するアプリケーションであっても、表示されるのはエスケープされた文字列リテラルであり、ブラウザに解釈され得る JavaScript コードにはなりません。
 
