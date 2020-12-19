@@ -83,6 +83,9 @@ GitHub の Dependency graph はリポジトリに格納されているマニフ�
 実際に使っていると `npm audit` は時々大量の Low レベルの脆弱性を大量に検知することがありますが、私は Dependabot Alerts が大量（数百件とか）のアラートをあげるようなケースに遭遇したことはありません。
 これは GitHub が独自にキュレーションをすることによって、実際に刺さらないような脆弱性を事前に省いているためかと考えています。（希望的観測）
 
+なお、GitHub Advisory Database は2019年11月に開始され、当初は2017年からサポートされているエコシステムの脆弱性情報を含むように構成されています。データベースに CVE を追加する際には、より新しい CVE、およびより新しいバージョンのソフトウェアに影響を与える CVE を優先的にキュレーションするとのことです。
+
+
 ### WhiteSource から通知されるデータとは何か
 
 以前 Software Design で連載されていた DevSecOps の記事でも紹介されていたので知っている人も多いかもしれませんが、[WhiteSource](https://www.whitesourcesoftware.com/) は OSS のセキュリティやライセンス管理を行うサービスであり、そのサービスを提供する会社です。
@@ -142,6 +145,7 @@ GitHub はグローバルなサービスなので JVN でのみ登録されて�
   - [About the dependency graph](https://docs.github.com/ja/free-pro-team@latest/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)
   - [Browsing the Advisory Database](https://docs.github.com/ja/free-pro-team@latest/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database)
   - [About alerts for vulnerable dependencies](https://docs.github.com/ja/free-pro-team@latest/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)
+  - [Troubleshooting the detection of vulnerable dependencies](https://docs.github.com/ja/free-pro-team@latest/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)
 - [National Vulnerability Database](https://nvd.nist.gov/)
 - [npm Security advisories](https://www.npmjs.com/advisories)
 - [WhiteSource Vulnerability Database](https://www.whitesourcesoftware.com/vulnerability-database/)
