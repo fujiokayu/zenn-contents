@@ -131,4 +131,6 @@ GitHub はグローバルなサービスなので JVN でのみ登録されて�
   - [About the dependency graph](https://docs.github.com/ja/free-pro-team@latest/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)
   - [Browsing the Advisory Database](https://docs.github.com/ja/free-pro-team@latest/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database)
   - [About alerts for vulnerable dependencies](https://docs.github.com/ja/free-pro-team@latest/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)
+- [National Vulnerability Database](https://nvd.nist.gov/)
+- [npm Security advisories](https://www.npmjs.com/advisories)
 - [WhiteSource Vulnerability Database](https://www.whitesourcesoftware.com/vulnerability-database/)
