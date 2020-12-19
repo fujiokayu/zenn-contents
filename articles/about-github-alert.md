@@ -3,7 +3,7 @@ title: "GitHub の Dependabot Alerts とは何か"
 emoji: "🤔"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Security, GitHub]
-published: false
+published: true
 ---
 
 この記事は[セキュリティ Advent Calendar 2020](https://qiita.com/advent-calendar/2020/security) の21日目です。
