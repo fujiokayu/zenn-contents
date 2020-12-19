@@ -95,6 +95,12 @@ Dependabot Alerts は上述の Dependency graph に基づいて解析を行う�
 
 ![](https://storage.googleapis.com/zenn-user-upload/z95q1tpixbh7iw15q5i5j0eoby2p)
 
+## サポートされているリポジトリ
+
+パブリックリポジトリでは自動的に適用されます。
+プライベートリポジトリでも、上述の通り、[Settings] > [Security & analysis] で有効化することで使えるようになります。
+公式の [Configuring Dependabot security updates](https://docs.github.com/ja/free-pro-team@latest/github/managing-security-vulnerabilities/configuring-dependabot-security-updates) では[サポートされているリポジトリ](https://docs.github.com/ja/free-pro-team@latest/github/managing-security-vulnerabilities/configuring-dependabot-security-updates#%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA)の中でフォークやアーカイブリポジトリを対象外と書いていますが、恐らく Dependabot Alerts も同じ条件が当てはまるんじゃないかと思います。（憶測）
+
 ## 注意事項
 
 [About alerts for vulnerable dependencies](https://docs.github.com/ja/free-pro-team@latest/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) には以下の注意が記載されています。
@@ -102,12 +108,6 @@ Dependabot Alerts は上述の Dependency graph に基づいて解析を行う�
 :::message
 GitHub のセキュリティ機能はすべての脆弱性を網羅しているわけではありません。私たちは常に脆弱性データベースを更新し、最新の情報でアラートを生成しようとしていますが、すべての脆弱性を把握したり、既知の脆弱性について保証された時間内にお伝えすることはできません。これらの機能は、潜在的な脆弱性やその他の問題について、各依存関係を人力でレビューすることに代わるものではなく、必要に応じてセキュリティサービスに相談するか、徹底的な脆弱性レビューを行うことをお勧めします。
 :::
-
-## サポートされているリポジトリ
-
-パブリックリポジトリでは自動的に適用されます。
-プライベートリポジトリでも、上述の通り、[Settings] > [Security & analysis] で有効化することで使えるようになります。
-公式の [Configuring Dependabot security updates](https://docs.github.com/ja/free-pro-team@latest/github/managing-security-vulnerabilities/configuring-dependabot-security-updates) では[サポートされているリポジトリ](https://docs.github.com/ja/free-pro-team@latest/github/managing-security-vulnerabilities/configuring-dependabot-security-updates#%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA)の中でフォークやアーカイブリポジトリを対象外と書いていますが、恐らく Dependabot Alerts も同じ条件が当てはまるんじゃないかと思います。（憶測）
 
 ## どのように Dependabot Alerts と向き合っていくべきか
 
