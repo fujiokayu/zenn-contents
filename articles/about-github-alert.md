@@ -14,7 +14,7 @@ published: false
 
 GitHub を利用している人で JavaScript などの言語を使っている場合、Dependabot Alerts は日常的に見かけるものであり、日頃からなんとなくその恩恵に預かっているのではないでしょうか。
 
-`npm audit` でも同様にライブラリの脆弱性を検知する機会はありますが、この機能は明示的に `npm audit` コマンドを叩いた時や `npm install` を実行した時などしか利用できないため、使用しているライブラリに新たな脆弱性が検知された時にわざわざ通知してくれる Dependabot Alerts は非常に便利な機能だと思います。
+`npm audit` でも同様にライブラリの脆弱性を検知する機会はありますが、この機能は明示的に `npm audit` コマンドを叩いた時や `npm install` を実行した時などしか利用できないため、使用しているライブラリに新たな脆弱性が検知された時にわざわざ通知してくれる Dependabot Alerts は非常に便利な機能です。
 
 しかし、この通知がどういったリポジトリを対象にしていて、どのようなデータに基づいて通知しているのか、説明できるほどの知識がなかったので改めて調べてみました。
 
@@ -22,7 +22,7 @@ GitHub を利用している人で JavaScript などの言語を使っている�
 
 [Dependabot](https://dependabot.com/) は依存パッケージの脆弱性を検知し、それを解決するためのプルリクを自動で生成してくれるサービスです。
 元々独立したサービスでしたが、[2019年に GitHub が買収](https://dependabot.com/blog/hello-github/)したことにより、現在は GitHub 公式の機能として利用されています。
-この記事では GitHub が格リポジトリに対して自動的に通知してくれる Dependabot Alerts を対象に話を進めますが、現在も GitHub の Marketplace から個別に利用することが可能です。
+この記事では GitHub が格リポジトリに対して自動的に通知してくれる Dependabot Alerts を対象に話を進めますが、現在も GitHub の Marketplace から個別に利用できます。
 
 - [Dependabot Preview](https://github.com/marketplace/dependabot-preview)
 
@@ -48,11 +48,11 @@ GitHub はリポジトリ内の脆弱な依存関係を検出したときに Dep
 まず、基本的な概念である Dependency graph(依存関係グラフ)について説明します。
 
 GitHub の Dependency graph はリポジトリに格納されているマニフェストとロックファイルに基づいて作成されます。
-これはリポジトリページの [insights] > [Dependency graph] から確認することができます。
+これはリポジトリページの [insights] > [Dependency graph] から確認できます。
 
 ![](https://storage.googleapis.com/zenn-user-upload/7fxp4xye4h99mb40pkpj29xxoik7)
 
-もしプライベートリポジトリでこの機能が有効化されていない場合は、リポジトリページの [Settings] > [Security & analysis] から有効化することができます。
+もしプライベートリポジトリでこの機能が有効化されていない場合は、リポジトリページの [Settings] > [Security & analysis] から有効化できます。
 
 サポートされているマニフェストやロックファイルを変更したり、デフォルトブランチに追加したりするコミットを GitHub にプッシュすると、依存関係のグラフが自動的に更新されます。
 サポートされているエコシステムとマニフェストファイルについては以下の「[サポートしているエコシステム](#サポートしているエコシステム)」を参照してください。
@@ -76,7 +76,7 @@ GitHub の Dependency graph はリポジトリに格納されているマニフ�
 
 以前 Software Design で連載されていた DevSecOps の記事でも紹介されていたので知っている人も多いかもしれませんが、[WhiteSource](https://www.whitesourcesoftware.com/) は OSS のセキュリティやライセンス管理を行うサービスであり、そのサービスを提供する会社です。
 
-[GitHub の公式ドキュメント](https://docs.github.com/ja/free-pro-team@latest/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)が指しているリンクは [WhiteSource Vulnerability Database](https://www.whitesourcesoftware.com/vulnerability-database/#) なので、おそらくここに追加された脆弱性が対象となっているのだと思います。
+[GitHub の公式ドキュメント](https://docs.github.com/ja/free-pro-team@latest/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)が指しているリンクは [WhiteSource Vulnerability Database](https://www.whitesourcesoftware.com/vulnerability-database/#) なので、おそらくここに追加された脆弱性が対象となっているのだと考えられます。
 
 WhiteSource のオープンソース脆弱性データベースは、200 以上のプログラミング言語と 300 万以上のオープンソース コンポーネントをカバーしていて、NVD、security advisories、OSS の Issue Tracker など、さまざまなソースからの情報を 1 日に何度も集約しているとのこと。
 [昔書いた記事](https://qiita.com/yuuhu04/items/b2851dedfaa59d634b65)でも一度お値段を調べたのですが、会社として個別に導入しようとすると中々お高い製品です。
@@ -111,7 +111,7 @@ GitHub のセキュリティ機能はすべての脆弱性を網羅している�
 
 ## どのように Dependabot Alerts と向き合っていくべきか
 
-稼働中のアプリにおいて、脆弱性に関するパッチマネジメントは非常に重要ですが、Dependabot Alerts だけに対応していれば良い、というわけではなさそうです。
+稼働中のアプリにおいて脆弱性に関するパッチマネジメントは非常に重要ですが、Dependabot Alerts だけに対応していれば良い、というわけではなさそうです。
 
 GitHub はグローバルなサービスなので JVN でのみ登録されている脆弱性まで検知することはありませんし、前述の通りサポートしているエコシステムには限りがあります。
 また、Windows や Android などのプラットフォームの脆弱性というものもあって、これらはプラットフォームのメンテナが対応するべき問題ではありますが、アプリケーションの開発者も状況に応じて適切なサポート OS のバージョンを更新していく必要があります。
