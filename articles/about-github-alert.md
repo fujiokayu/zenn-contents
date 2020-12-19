@@ -57,6 +57,17 @@ GitHub の Dependency graph はリポジトリに格納されているマニフ�
 サポートされているマニフェストやロックファイルを変更したり、デフォルトブランチに追加したりするコミットを GitHub にプッシュすると、依存関係のグラフが自動的に更新されます。
 サポートされているエコシステムとマニフェストファイルについては以下の「[サポートしているエコシステム](#サポートしているエコシステム)」を参照してください。
 
+#### Dependency graph の制限事項
+
+以下の2つのケースでは Dependency graph に制限を与えることに注意が必要です。
+
+1. Processing limits
+    - 0.5 MB を超えるサイズのマニフェストは、エンタープライズアカウントでのみ処理されます。それ以外のアカウントでは、0.5MB を超えるマニフェストは無視され、Dependabot アラートは作成されません。
+    - デフォルトでは、GitHub はリポジトリごとに 20 個以上のマニフェストを処理しません。制限を増やす必要がある場合は、GitHub サポートか GitHub プレミアムサポートに連絡が必要
+2. Visualization limits
+    - リポジトリ Dependency graph ビューには100個のマニフェストしか表示されません。GitHub 内に表示されていないマニフェストに対しても Dependabot Alerts は作成されます。
+
+
 ### GitHub Advisory Database とは何か
 
 [GitHub Advisory Database](https://github.com/advisories) には、GitHub の Dependency graph によって追跡されるパッケージにマップされた脆弱性の**キュレーションされた**リストが含まれています。
