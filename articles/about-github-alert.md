@@ -8,6 +8,23 @@ published: true
 
 この記事は[セキュリティ Advent Calendar 2020](https://qiita.com/advent-calendar/2020/security) の19日目です。
 
+<!-- TOC -->
+
+- [はじめに](#はじめに)
+- [Dependabot とは何か](#dependabot-とは何か)
+- [Dependency Alerts が通知する脆弱性とは何か](#dependency-alerts-が通知する脆弱性とは何か)
+  - [リポジトリの Dependency graph とは何か](#リポジトリの-dependency-graph-とは何か)
+    - [Dependency graph の制限事項](#dependency-graph-の制限事項)
+  - [GitHub Advisory Database とは何か](#github-advisory-database-とは何か)
+  - [WhiteSource から通知されるデータとは何か](#whitesource-から通知されるデータとは何か)
+- [サポートしているエコシステム](#サポートしているエコシステム)
+- [サポートしているリポジトリ](#サポートしているリポジトリ)
+- [注意事項](#注意事項)
+- [どのように Dependabot Alerts と向き合っていくべきか](#どのように-dependabot-alerts-と向き合っていくべきか)
+- [References](#references)
+
+<!-- /TOC -->
+
 ## はじめに
 
 ![](https://storage.googleapis.com/zenn-user-upload/brcdms04eyeqop5lm2ja3uzdwu4p)
