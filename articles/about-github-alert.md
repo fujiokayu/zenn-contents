@@ -95,7 +95,7 @@ Dependabot Alerts は上述の Dependency graph に基づいて解析を行う�
 
 ![](https://storage.googleapis.com/zenn-user-upload/z95q1tpixbh7iw15q5i5j0eoby2p)
 
-## サポートされているリポジトリ
+## サポートしているリポジトリ
 
 パブリックリポジトリでは自動的に適用されます。
 プライベートリポジトリでも、上述の通り、[Settings] > [Security & analysis] で有効化することで使えるようになります。
