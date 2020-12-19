@@ -26,7 +26,7 @@ GitHub を利用している人で JavaScript などの言語を使っている�
 
 - [Dependabot Preview](https://github.com/marketplace/dependabot-preview)
 
-[後述](#サポートしているエコシステム)する通り自動的に通知される Alerts がサポートしているエコシステムには限りがありますが、個別にインストールした場合は alpha 版の機能である [Rust](https://dependabot.com/rust/) や [Go](https://dependabot.com/go/) にも対応しているっぽいです。
+[後述](#サポートしているエコシステム)する通り自動的に通知される Alerts がサポートしているエコシステムには限りがありますが、個別にインストールした場合は alpha 版の機能である [Rust](https://dependabot.com/rust/) や [Go](https://dependabot.com/go/) にも対応しているようです。
 
 
 ## Dependency Alerts が通知する脆弱性とは何か
@@ -39,15 +39,15 @@ GitHub はリポジトリ内の脆弱な依存関係を検出したときに Dep
 
 - 新しい脆弱性が [GitHub Advisory Database](https://github.com/advisories) に追加された時
 - [WhiteSource](https://www.whitesourcesoftware.com/vulnerability-database/) から新しい脆弱性のデータが処理された時
-- コントリビューターがリポジトリの依存関係グラフを更新した時
+- コントリビューターがリポジトリの Dependency graph を更新した時
 
 もう少し詳しく見ていきましょう。
 
-### リポジトリの依存関係グラフとは何か
+### リポジトリの Dependency graph とは何か
 
-まず、基本的な概念である依存関係グラフ(Dependency graph)について説明します。
+まず、基本的な概念である Dependency graph(依存関係グラフ)について説明します。
 
-GitHub の依存関係グラフはリポジトリに格納されているマニフェストとロックファイルに基づいて作成されます。
+GitHub の Dependency graph はリポジトリに格納されているマニフェストとロックファイルに基づいて作成されます。
 これはリポジトリページの [insights] > [Dependency graph] から確認することができます。
 
 ![](https://storage.googleapis.com/zenn-user-upload/7fxp4xye4h99mb40pkpj29xxoik7)
@@ -59,7 +59,7 @@ GitHub の依存関係グラフはリポジトリに格納されているマニ�
 
 ### GitHub Advisory Database とは何か
 
-[GitHub Advisory Database](https://github.com/advisories) には、GitHub の依存関係グラフによって追跡されるパッケージにマップされた脆弱性の**キュレーションされた**リストが含まれています。
+[GitHub Advisory Database](https://github.com/advisories) には、GitHub の Dependency graph によって追跡されるパッケージにマップされた脆弱性の**キュレーションされた**リストが含まれています。
 登録される脆弱性は以下のソースに基づいています。
 
 - [National Vulnerability Database](https://nvd.nist.gov/)
@@ -69,7 +69,7 @@ GitHub の依存関係グラフはリポジトリに格納されているマニ�
 
 重要度のレベルは CVSS バージョン 3.0 標準に従って決定されますが、GitHub は Low 〜 Critical のレベルのみを通知し、CVSS のスコアは公開していません。
 
-実際に使っていると、`npm audit` は時々大量の Low レベルの脆弱性を大量に検知することがありますが、私は Dependabot Alerts が大量（数百件とか）のアラートをあげるようなケースに遭遇したことはありません。
+実際に使っていると `npm audit` は時々大量の Low レベルの脆弱性を大量に検知することがありますが、私は Dependabot Alerts が大量（数百件とか）のアラートをあげるようなケースに遭遇したことはありません。
 これは GitHub が独自にキュレーションをすることによって、実際に刺さらないような脆弱性を事前に省いているためかと考えています。（希望的観測）
 
 ### WhiteSource から通知されるデータとは何か
@@ -84,7 +84,7 @@ WhiteSource のオープンソース脆弱性データベースは、200 以上�
 
 ## サポートしているエコシステム
 
-Dependabot Alerts は上述の依存関係グラフに基づいて解析を行うため、サポートされるのは言語ではなくパッケージマネージャー単位になります。
+Dependabot Alerts は上述の Dependency graph に基づいて解析を行うため、サポートされるのは言語ではなくパッケージマネージャー単位になります。
 
 :::message alert
 そのため、Python で setup.py 内に依存関係が記載されている場合や、Java や Scala でも Maven を使っていない場合はアラートが作成されないことに注意してください。
