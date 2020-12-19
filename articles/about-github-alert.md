@@ -123,6 +123,7 @@ GitHub はグローバルなサービスなので JVN でのみ登録されて�
 
 ## References
 
+- [セキュリティ Advent Calendar 2020](https://qiita.com/advent-calendar/2020/security)
 - [Dependabot](https://dependabot.com/)
 - [Dependabot Preview](https://github.com/marketplace/dependabot-preview)
 - [GitHub Docs](https://docs.github.com/ja)
