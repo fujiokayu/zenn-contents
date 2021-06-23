@@ -1,0 +1,10 @@
+title: "OWASP IoTGoat で学ぶ IoT セキュリティ"
+summary: "IoT やられアプリの解析を通して、IoT のセキュリティについて学びます"
+topics: ["Security", "セキュリティ", "IoT"]
+published: false
+price: 0 # 有料の場合200〜5000
+# 本に含めるチャプターを順番に並べましょう
+chapters:
+  - about-owasp-iot-goat
+  - analyze-firmware 
+  - analyze-network
