@@ -6,9 +6,25 @@ topics: [Security, セキュリティ]
 published: false
 ---
 
+## TOC
+
+- [はじめに](#はじめに)
+- [Refactor of MASVS / MASVS v2 #553](#refactor-of-masvs--masvs-v2-553httpsgithubcomowaspowasp-masvsdiscussions553)
+  - [Current Problems](#current-problems)
+  - [Proposal](#proposal)
+  - [Consequences](#consequences)
+  - [Next steps](#next-steps)
+  - [Open questions](#open-questions)
+  - [comments](#comments)
+- [MASVS-NETWORK Refactoring (till 31.12.21) #559](#masvs-network-refactoring-till-311221-559httpsgithubcomowaspowasp-masvsdiscussions559)
+- [MASVS-CRYPTO Refactoring (till 31.01.22) #612](#masvs-crypto-refactoring-till-310122-612httpsgithubcomowaspowasp-masvsdiscussions612)
+- [MASVS-PLATFORM Refactoring (till 09.04.22) #635](#masvs-platform-refactoring-till-090422-635httpsgithubcomowaspowasp-masvsdiscussions635)
+- [MASVS-STORAGE Refactoring (till 15.03.22) #627](#masvs-storage-refactoring-till-150322-627httpsgithubcomowaspowasp-masvsdiscussions627)
+
+
 ## はじめに
 
-本稿では OWASP MASVS(Mobile Application Security Verification Standard) のリポジトリで議題に上がっているプロポーザルについて紹介していきます。
+本稿では OWASP MASVS(Mobile Application Security Verification Standard) で今後予定している大規模なリファクタリングに関するプロポーザルについて紹介していきます。
 MASVS や MSTG の概要については触れないので、ご興味のある方は各プロジェクトの公式リポジトリをご参照ください。
 
 - [OWASP Mobile Application Security Verification Standard](https://github.com/OWASP/owasp-masvs)
@@ -17,7 +33,7 @@ MASVS や MSTG の概要については触れないので、ご興味のある�
 ---
 
 それでは、MASVS の GitHub Discussions で big-masvs-refactoring のカテゴリに含まれる議題を古い順に紹介していきます。
-- [big-masvs-refactoring](https://github.com/OWASP/owasp-masvs/discussions/categories/big-masvs-refactoring)
+- [Big MASVS Refactoring](https://github.com/OWASP/owasp-masvs/discussions/categories/big-masvs-refactoring)
 ※ 2022年現在、MASVS/MSTG に関する提案は OWASP Slack ではなく GitHub Discussions の利用を推奨されています。
 
 ## [Refactor of MASVS / MASVS v2 #553](https://github.com/OWASP/owasp-masvs/discussions/553)
@@ -74,7 +90,7 @@ MASVS や MSTG の概要については触れないので、ご興味のある�
 それと、コメントの最後では MASVS & MSTG Refactoring の資料が共有されています。
 <https://drive.google.com/file/d/18-SMIDaNFPKHK8V6wWQqvj0UTu4toteQ/view>
 
-この資料では、特に MASVS Refactoring: Current status のスライドが今後の大まかな方向性を提示しているので押さえておくと良いでしょう。
+この資料では今後の大まかな方向性を提示しているので押さえておくと良いでしょう。Discussion では触れられていない、メンテナンスの自動化などについても言及されています。
 
 ![](https://storage.googleapis.com/zenn-user-upload/3aa36b4f9fac-20220326.png)
 
@@ -170,7 +186,7 @@ MSTG-NETWORK-6 |   | Removed |  
       - protocols (TLS, SSH, IPsec, Diffie-Hellman, etc.)
       - algorithms (AES, RSA, SHA, etc.)
     - 2) 常に業界やプラットフォームのベストプラクティス（NIST、BSI に準拠した鍵長など）に従って使用している
-    - 1)と2)が成立している場合のみ合格とする
+    - 1)と2)が成立している場合のみ Pass とする
     - もちろん、セキュリティに関連しないコード（UUID/GUIDなど）が非推奨/弱い暗号を使用しても構わない
 - MASVS-CRYPTO-3 The app performs key management according to industry best practices.
   - アプリは業界のベストプラクティスに従ってキーマネージメントを行なっている
@@ -178,7 +194,7 @@ MSTG-NETWORK-6 |   | Removed |  
       - 鍵の再利用禁止
       - 鍵のローテーション
       - 鍵の認証
-      - etc.(詳しくはテストケースをご覧ください)
+      - etc.(詳しくはテストケースを参照)
 - MASVS-CRYPTO-4 All cryptographic material must be stored in a tamper-resistant environment.
   - 暗号に関連するすべての要素は、耐タンパー性のある環境で保管されなければならない
     - 暗号鍵を扱う高リスクのアプリのみ準拠が必要
@@ -221,7 +237,7 @@ MSTG-NETWORK-6 |   | Removed |  
   - 機密データは保護されていない IPC メカニズムを介して公開されていない。
     - すべての可能なIPC方式（URLからアプリ、アプリからアプリ、アプリ内グループ、OSからアプリ）を対象とする
 - MASVS-PLATFORM-3 WebViews are configured securely and prevent sensitive functionality exposure.
-  - WebView はセキュアに設定され、機密性が高い機能の露出を防いでいること
+  - WebView はセキュアに設定され、機密性が高い機能の露出を防いでいる
 - MASVS-PLATFORM-4 No sensitive data is included in platform backups.
   - 機密データはプラットフォームが生成するバックアップに含まれていない
     - アプリは独自のバックアップを作成することもできるが、それは MASVS-STORAGE-1 でカバーされており、そのための特定のテストがある
@@ -294,3 +310,12 @@ MSTG-NETWORK-6 |   | Removed |  
   - アプリは機密性の高いユーザーデータを処理する際、プライバシーのベストプラクティスに従っている
     - プライバシーのテストは複雑なタスクであり、プラットフォーム（Android/iOS）は急速に改善されている
     - このコントロールはその迅速な進化をカバーするために十分な抽象化を提供し、詳細はより機敏な方法で成長するMSTGに委ねるべき
+
+---
+
+以上です。Big MASVS Refactoring の名の通り、非常に大規模なリファクタリングであることが伝わったと思います。
+なお、MASVS-PLATFORM はまだコメントを受け付けているので、ご意見のある方はぜひ Discussion に参加してください。
+
+個人的には、V4 を丸々っと ASVS に委ねてしまうと MSTG-AUTH-8 や MSTG-AUTH-12 を検証する機会がなくなってしまうのでは、という点が気になっています。
+また、ASVS では PKCE([RFC7636](https://datatracker.ietf.org/doc/html/rfc7636)) に関する要件がないので、これも MASVS で取り扱う箇所があると良いはず。従来の MSTG だと Testing OAuth 2.0 Flows (MSTG-AUTH-1 and MSTG-AUTH-3)が該当。
+この辺りは別途、メンテナと相談していきたいと思います。
