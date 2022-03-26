@@ -3,7 +3,7 @@ title: "Recent proposals for Big MASVS Refactoring"
 emoji: "☎️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Security, セキュリティ]
-published: false
+published: true
 ---
 
 ## TOC
