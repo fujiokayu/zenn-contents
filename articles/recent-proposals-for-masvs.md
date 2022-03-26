@@ -6,22 +6,6 @@ topics: [Security, セキュリティ]
 published: true
 ---
 
-## TOC
-
-- [はじめに](#はじめに)
-- [Refactor of MASVS / MASVS v2 #553](#refactor-of-masvs--masvs-v2-553httpsgithubcomowaspowasp-masvsdiscussions553)
-  - [Current Problems](#current-problems)
-  - [Proposal](#proposal)
-  - [Consequences](#consequences)
-  - [Next steps](#next-steps)
-  - [Open questions](#open-questions)
-  - [comments](#comments)
-- [MASVS-NETWORK Refactoring (till 31.12.21) #559](#masvs-network-refactoring-till-311221-559httpsgithubcomowaspowasp-masvsdiscussions559)
-- [MASVS-CRYPTO Refactoring (till 31.01.22) #612](#masvs-crypto-refactoring-till-310122-612httpsgithubcomowaspowasp-masvsdiscussions612)
-- [MASVS-PLATFORM Refactoring (till 09.04.22) #635](#masvs-platform-refactoring-till-090422-635httpsgithubcomowaspowasp-masvsdiscussions635)
-- [MASVS-STORAGE Refactoring (till 15.03.22) #627](#masvs-storage-refactoring-till-150322-627httpsgithubcomowaspowasp-masvsdiscussions627)
-
-
 ## はじめに
 
 本稿では OWASP MASVS(Mobile Application Security Verification Standard) で今後予定している大規模なリファクタリングに関するプロポーザルについて紹介していきます。
@@ -310,6 +294,6 @@ MSTG-NETWORK-6 |   | Removed |  
 
 なお、MASVS-PLATFORM はまだコメントを受け付けているので、ご意見のある方はぜひ Discussion に参加してください。
 
-個人的には、V4 を丸々っと ASVS に委ねてしまうと MSTG-AUTH-8 や MSTG-AUTH-12 を検証する機会がなくなってしまうのでは、という点が気になっています。
+個人的には、V4 を丸々っと ASVS に委ねてしまうと Local Authentication に関する MSTG-AUTH-8 や MSTG-AUTH-12 を検証する機会がなくなってしまうのでは、という点が気になっています。
 また、ASVS では PKCE([RFC7636](https://datatracker.ietf.org/doc/html/rfc7636)) に関する要件がないので、これも MASVS で取り扱う箇所があると良いはず。従来の MSTG だと Testing OAuth 2.0 Flows (MSTG-AUTH-1 and MSTG-AUTH-3)が該当。
 この辺りは別途、メンテナ達と相談していきたいと思います。
