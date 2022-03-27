@@ -104,7 +104,7 @@ MSTG-NETWORK-6 |   | Removed |  
 以下は変更点の要約です。
 
 - MSTG-NETWORK-1 データはネットワーク上で TLS を使用して暗号化されている。セキュアチャネルがアプリ全体を通して一貫して使用されている。
-  - HTTP と HTTPS のそれぞれのチェック項目に分かれた
+  - HTTP{S} と それ以外の通信についてチェック項目を分けた
 - MSTG-NETWORK-2 TLS 設定は現在のベストプラクティスと一致している。モバイルオペレーティングシステムが推奨される標準規格をサポートしていない場合には可能な限り近い状態である。
   - TLS Settings という文言を network security settings に置き換え。
 - MSTG-NETWORK-3 セキュアチャネルが確立されたときに、アプリはリモートエンドポイントの X.509 証明書を検証している。信頼された CA により署名された証明書のみが受け入れられている。
@@ -115,7 +115,6 @@ MSTG-NETWORK-6 |   | Removed |  
   - ASVS 2.5.6 でカバーされるので Remove
 - MSTG-NETWORK-6 アプリは最新の接続ライブラリとセキュリティライブラリにのみ依存している。
   - MSTG-CODE-5 でカバーされるため Remove
-  - Android のセキュリティブロバイダーに関する検証も MSTG-CODE-5 に移動するのかな
 
 ## [MASVS-CRYPTO Refactoring (till 31.01.22) #612](https://github.com/OWASP/owasp-masvs/discussions/612)
 
