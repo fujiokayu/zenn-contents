@@ -125,6 +125,8 @@ MSTG-NETWORK-6 |   | Removed |  
 提案内容はスプレッドシートで共有されています。
 <https://docs.google.com/spreadsheets/d/1oyVMntRLaLHMWNfQqrWk3e0Q_HUI0Yo1opRB_hyYrpY/edit#gid=0>
 
+![](https://storage.googleapis.com/zenn-user-upload/e6ea3e1eac56-20220328.png)
+
 以下は従来の要件の変更について
 
 - MSTG-CRYPTO-1 アプリは暗号化の唯一の方法としてハードコードされた鍵による対称暗号化に依存していない。
@@ -183,6 +185,8 @@ MSTG-NETWORK-6 |   | Removed |  
 スプレッドシートは以下。
 <https://docs.google.com/spreadsheets/d/1gRQAp2s6KYQA8KUDZpcEammMMCjxu3wVIQkAGO8ca2Q/edit#gid=0>
 
+![](https://storage.googleapis.com/zenn-user-upload/882ec227e804-20220328.png)
+
 以下は従来の要件の変更について
 
 - MSTG-PLATFORM-1 アプリは必要となる最低限のパーミッションのみを要求している。
@@ -227,6 +231,8 @@ MSTG-NETWORK-6 |   | Removed |  
 
 スプレッドシートは以下。
 <https://docs.google.com/spreadsheets/d/1-mddga8DtFu5Ef9vcyPNrgaFMx44Bv5AcPv4ZqFtTHM/edit#gid=0>
+
+![](https://storage.googleapis.com/zenn-user-upload/8d849a94eda6-20220328.png)
 
 以下は従来の要件の変更について
 
