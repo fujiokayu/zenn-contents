@@ -86,7 +86,7 @@ MASVS や MSTG の概要については触れないので、ご興味のある�
 5.1 | MASVS-NETWORK-1 | All HTTP requests in transit between the app and endpoints are encrypted. | x | x
 5.2 | MASVS-NETWORK-2 | All Non-HTTP requests in transit between the app and endpoints are encrypted. | x | x
 5.3 | MASVS-NETWORK-3 | The network security settings in the app are in line with current best practices. | x | x
-5.4 | MASVS-NETWORK-4 | The app verifies the X.509 certificate of the remote endpoint(s) when the secure channel is established. Only certificates signed by a trusted Certificate Authority (CA) that are part of the system storage (or "host platform"?) are accepted. | x | x
+5.4 | MASVS-NETWORK-4 | The app verifies the X.509 certificate of the remote endpoint(s) when the secure channel is established. Only certificates signed by a trusted Certificate Authority (CA) that are part of the system storage (or "host platform"?) are accepted. |  | x
 5.5 | MASVS-NETWORK-5 | The app either uses its own certificate store, or pins the endpoint certificate or public key, and subsequently does not establish connections with endpoints that offer a different certificate or key, even if signed by a trusted CA. |   | x
 
 - Mapping between MASVS v1.3 to MASVS v2.0:
