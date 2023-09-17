@@ -7,7 +7,7 @@ published: false
 ---
 
 security.txt は非常にシンプルな text/plain ファイルであり、既成のものをコピペして `.well-known/security.txt` として配置するだけであれば、ものの数分で対応できることでしょう。
-また、[自動で作成してくれる Web App](https://securitytxt.org/) も公式で用意されています。
+また、[自動で作成してくれる Web アプリ](https://securitytxt.org/)も公式で用意されています。
 
 ですが、例えば「Preferred-Languages に優先順位はあるの？」、「攻撃者によって security.txt が改ざんされたらどうなるの？」といったことは気にならないでしょうか。
 私はとても気になります。
