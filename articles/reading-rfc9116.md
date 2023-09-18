@@ -2,8 +2,8 @@
 title: "RFC 9116 から読み解く正しい security.txt の書き方"
 emoji: "🔏"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: [security, セキュリティ]
-published: false
+topics: [security, セキュリティ, web, rfc]
+published: true
 ---
 
 security.txt は非常にシンプルな text/plain ファイルであり、既成のものをコピペして `.well-known/security.txt` として配置するだけであれば、ものの数分で対応できることでしょう。
@@ -343,7 +343,7 @@ security.txt ファイルが HTTPS 経由で提供できない場合、または
   - 一方、security.txt ファイルはそのファイルを公開する組織が提供する製品やサービスにも適用できる(MAY)
 - 日本のリサーチャーに明示的に伝える意味でも、Preferred-Languages で日本語がサポートされていることは伝えた方が良さそう
 - security.txt を置くことでそこに DoS や大量のレポートが届いて業務が阻害される可能性もあるから、メリットデメリットは見極めて
-- `Hiring` フィールドはユーモアがあって良いですね。「security.txt を見て来ました」って security engineer が面接に来たら採用したくなる
+- `Hiring` フィールドはユーモアがあって良いですね。「security.txt を見て来ました」って security engineer が面接に来たら採用したくなりそうです。
 
 といったところでしょうか。
 
