@@ -21,7 +21,7 @@ security.txt は非常にシンプルな text/plain ファイルであり、既�
 
 そのため、記法の意図や詳細な背景、最新の情報を知りたい場合は原文を参照してください。
 
-- [RFC 9116 A File Format to Aid in Security Vulnerability Disclosure](https://www.rfc-editor.org/rfc/rfc9116#name-redirects)
+- [RFC 9116 A File Format to Aid in Security Vulnerability Disclosure](https://www.rfc-editor.org/rfc/rfc9116)
 :::
 
 tl;dr は[こちら](#まとめ)
@@ -57,13 +57,13 @@ security.txt の書式は機械で解析可能であり、必ず ABNF(Augmented 
 
 すべての行は carriage return と改行文字(CRLF / `%x0D%x0A`)、または単なる改行文字(LF / `%x0A`)のいずれかで終わる必要があります。
 
-### 2.3 デジタル署名
+### 2.3 Digital Signature
 
 security.txt ファイルには、[RFC4880のセクション 7 ](https://www.rfc-editor.org/rfc/rfc4880#section-7)で説明されているように、 OpenPGP の平文署名を使用してデジタル署名することが推奨されます。電子署名を使用する場合、組織は `Canonical` フィールドを使用することも推奨されます。
 
 署名を生成するために使用される鍵の検証に関して、使用される鍵が本当に信頼できるものであることを確認するのは常にセキュリティリサーチャーの責任となります。
 
-### 2.4 拡張性
+### 2.4 Extensibility
 
 他の多くのフォーマットやプロトコルと同様、このフォーマットも変化し続けるインターネットの状況に合わせて時間の経過とともに変更する必要があるかもしれません。そのため IANA レジストリによって拡張性が提供されており、このプロセスで登録されるフィールドはすべてオプションとみなさなければなりません。拡張性と相互運用性を促進するために、リサーチャーは明示的にサポートしていないフィールドは無視しなければいけません。
 
