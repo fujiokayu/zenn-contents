@@ -2,7 +2,7 @@
 title: "RFC 9116 から読み解く正しい security.txt の書き方"
 emoji: "🔏"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: [security, セキュリティ]
+topics: [security, セキュリティ, web, rfc]
 published: false
 ---
 
