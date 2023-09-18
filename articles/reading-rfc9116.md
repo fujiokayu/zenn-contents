@@ -3,7 +3,7 @@ title: "RFC 9116 から読み解く正しい security.txt の書き方"
 emoji: "🔏"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [security, セキュリティ, web, rfc]
-published: false
+published: true
 ---
 
 security.txt は非常にシンプルな text/plain ファイルであり、既成のものをコピペして `.well-known/security.txt` として配置するだけであれば、ものの数分で対応できることでしょう。
