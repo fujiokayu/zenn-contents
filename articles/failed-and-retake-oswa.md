@@ -3,7 +3,7 @@ title: "OSWA 受験記（追試込み）"
 emoji: "🔏"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: [security, web, 資格]
-published: false
+published: true
 ---
 
 先日 [OSWA(WEB-200: Offensive Security Web Assessor)](https://www.offsec.com/courses/web-200/) に合格したので、トレーニングや受験に関する自分の体験をまとめました。
