@@ -34,6 +34,19 @@ return <div dangerouslySetInnerHTML={{ __html: userInput }} />;
 現実的に起こり得るパターンだと思うのがこれです。
 props や state 経由で href タグにデータを渡すと、DOM にレンダリングされる前にデータがエスケープされません。
 
+:::message
+2024/12/10 追記
+
+React v19 で対策が merge されました。
+
+> - Javascript URLs are replaced with functions that throw errors ([#26507](https://github.com/facebook/react/pull/26507), [#29808](https://github.com/facebook/react/pull/29808) by @sebmarkbage and @kassens)
+>
+> https://github.com/facebook/react/releases/tag/v19.0.0
+
+javascript: が設定されたリンクは `javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')`に置き換えられるようです。
+
+:::
+
 私が以前実装(の途中で放置)したやられアプリにこの脆弱性を実装しています。
 [amplify-goat](https://github.com/fujiokayu/amplify-goat) は React で実装されたシンプルな Todo アプリですが、`https` で始まる Todo はリンク URL として解釈するというお節介な機能が実装されており、その結果以下の脆弱なコードが実装されました。
 
